@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "DesignTry";
+}
+
+<style>
+    .btn-primary {
+        background-color: white;
+        color: gray;
+    }
+
+        .btn-primary:hover, .btn-primary:focus,
+        .btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+        .btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+        .open > .dropdown-toggle.btn-primary,
+        .open > .dropdown-toggle.btn-primary:hover,
+        .open > .dropdown-toggle.btn-primary:focus,
+        .open > .dropdown-toggle.btn-primary.focus,
+        .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+        .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+        .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+            background-color: #66FF66;
+            color: black;
+        }
+
+        .btn-primary.outline {
+            border: 3px solid red;
+            color: blue;
+        }
+</style>
+
+<h2>DesignTry</h2>
+
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Library</a></li>
+    <li class="active">Data</li>
+</ol>
+
+
+
+<div class="highlight">
+    <form>
+        <fieldset>
+            <!-- Email -->
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="Email" required />
+            </div>
+
+            <!-- ファイル -->
+            <div class="form-group">
+                <label>ファイル</label>
+                <input class="form-control" type="text" readonly />
+                <input type="file" id="exampleInputFile">
+                <p class="help-block">PDFをアップロードするんやで？</p>
+            </div>
+
+            <div class="form-group">
+                <label>是非</label>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                        <input type="radio" name="options" id="option1" checked> True
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="option2"> False
+                    </label>
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Button1</button>
+                <button type="submit" class="btn btn-default">Button2</button>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
