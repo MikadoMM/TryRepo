@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TechnicalResearch.Models;
 
 namespace TechnicalResearch.Controllers
 {
@@ -35,6 +36,29 @@ namespace TechnicalResearch.Controllers
         public ActionResult DesignTry()
         {
             return View();
+        }
+
+        public ActionResult FormTry()
+        {
+            return View();
+        }
+
+        public ActionResult Test1(Employee[] employees)
+        {
+            return RedirectToAction("FormTry");
+        }
+
+        [HttpPost]
+        public ActionResult FormTry(Employee employees)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("FormTry");
+            }
+            else
+            {
+                return View("FormTry");
+            }
         }
     }
 }

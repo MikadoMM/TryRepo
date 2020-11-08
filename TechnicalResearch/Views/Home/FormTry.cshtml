@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "FormTry";
+
+    var companyname = "";
+    var contactname = "";
+    var employeecount = 0;
+
+    if (IsPost)
+    {
+        companyname = Request.Form["companyname"];
+        contactname = Request.Form["contactname"];
+        employeecount = Request.Form["employees"].AsInt();
+
+        <text>
+            You entered:
+            <br />
+            Company Name: @companyname
+            <br />
+            Contact Name: @contactname
+            <br />
+            Employee Count: @employeecount
+            <br />
+        </text>
+    }
+}
+
+<h2>FormTry</h2>
+
+<form method="post">
+    <fieldset>
+        <legend>Add Customer</legend>
+        <div>
+            <label for="CompanyName">Company Name:</label>
+            <input type="text" name="CompanyName" value="@companyname" />
+        </div>
+        <div>
+            <label for="ContactName">Contact Name:</label>
+            <input type="text" name="ContactName" value="@contactname" />
+        </div>
+        <div>
+            <label for="Employees">Employee Count:</label>
+            <input type="text" name="Employees" value="@employeecount" />
+        </div>
+        <div>
+            <label>&nbsp;</label>
+            <input type="submit" value="Submit" class="submit" />
+        </div>
+    </fieldset>
+</form>
+
+@using (Html.BeginForm("Test1", "Home"))
+{
+    <input type="text" name="employees[0].Id" value="1" />
+    <input type="text" name="employees[0].Name" value="Bob" />
+    <input type="text" name="employees[1].Id" value="2" />
+    <input type="text" name="employees[1].Name" value="Joe" />
+    <input type="submit" name="Send" value="Send" />
+}
+
+@model TechnicalResearch.Models.Employee
+@using (Html.BeginForm("Test2", "Home"))
+{
+    @Html.AntiForgeryToken()
+    @Html.LabelFor(model => model.id)
+    @Html.TextBoxFor(model => model.id, new { @readonly = "readonly" })
+
+    @Html.LabelFor(model => model.name)
+    @Html.TextBoxFor(model => model.name)
+    @Html.ValidationMessageFor(model => model.name)
+    <input type="submit" name="Send" value="OK" />
+}
